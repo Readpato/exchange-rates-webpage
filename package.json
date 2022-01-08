@@ -1,0 +1,29 @@
+{
+  "name": "exchange-rates-webpage",
+  "version": "1.0.0",
+  "description": "A website depicting exchange rates",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Readpato/exchange-rates-webpage.git"
+  },
+  "keywords": [
+    "exchange",
+    "rates"
+  ],
+  "author": "Patrick Raedler",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Readpato/exchange-rates-webpage/issues"
+  },
+  "homepage": "https://github.com/Readpato/exchange-rates-webpage#readme",
+  "dependencies": {
+    "bootstrap": "^5.1.3"
+  },
+  "devDependencies": {
+    "cypress": "^9.2.0"
+  }
+}
