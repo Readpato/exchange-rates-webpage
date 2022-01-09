@@ -37,6 +37,10 @@ main .exchange-rates-layout .currency-selector-wrapper {
           align-items: center;
 }
 
+main .exchange-rates-layout .currency-selector-wrapper .bi-arrow-right-circle {
+  font-size: 32px;
+}
+
 main .exchange-rates-layout .convertion-results {
   background-color: #ed6a5a;
   margin-top: 2rem;
