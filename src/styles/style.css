@@ -1,1 +1,74 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+.navigation-bar {
+  background-color: #2274a5;
+}
+
+main {
+  background-color: #e7dfc6;
+  width: 100%;
+}
+
+main .exchange-rates-layout {
+  height: 50vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main .exchange-rates-layout .currency-selector-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .exchange-rates-layout .convertion-results {
+  background-color: #ed6a5a;
+  margin-top: 2rem;
+}
+
+@media screen and (max-width: 1024px) {
+  main .currency-selector-wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  main .currency-selector-wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #e7dfc6;
+}
+/*# sourceMappingURL=style.css.map */
