@@ -8,15 +8,62 @@
       rel="stylesheet"
       href="node_modules/bootstrap/dist/css/bootstrap.min.css"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;1,500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="src/styles/style.css" />
     <title>Exchange Rates Webpage</title>
   </head>
   <body>
-    <nav class="navbar navbar-light bg-blue navigation-bar">
+    <nav class="navbar navbar-light bg-blue navigation-bar fixed-top">
       <div class="container-fluid justify-content-center">
         <span class="navbar-brand mb-0 h1 text-white">Exchange Rates</span>
       </div>
     </nav>
+
+    <main>
+      <div class="container exchange-options">
+        <form class="currency-selector-wrapper">
+          <div class="amount-wrapper">
+            <label for="amount-input" class="form-label">Amount</label>
+            <input type="number" class="form-control" id="amount-input" />
+          </div>
+
+          <div class="from-currency-wrapper">
+            <label for="currency-selector" class="form-label">From</label>
+            <select
+              id="from-currency-selector"
+              class="form-select"
+              aria-label="Default select example"
+            >
+              <option selected>Open this select menu</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+
+          <div>Icon Holder</div>
+
+          <div class="to-currency-wrapper">
+            <label for="to-currency-selector" class="form-label">To</label>
+            <select
+              id="to-currency-selector"
+              class="form-select"
+              aria-label="Default select example"
+            >
+              <option selected>Open this select menu</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+        </form>
+      </div>
+    </main>
 
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="src/index.js"></script>
