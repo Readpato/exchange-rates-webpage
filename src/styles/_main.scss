@@ -11,6 +11,19 @@ main {
     font-size: 2em;
   }
 
+  .convert-button {
+    background-color: $button-color;
+    border: none;
+  }
+
+  .convert-button:hover {
+    background-color: $button-color-hover;
+  }
+
+  .convert-button:focus {
+    background-color: $button-color;
+  }
+
   .convertion-results {
     background-color: $result-color;
   }
