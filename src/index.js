@@ -9,6 +9,7 @@ const $expectedCurrencySelector = document.querySelector(
 const $convertButton = document.querySelector(".convert-button");
 const $dateInput = document.querySelector("#date-input");
 const $amountInput = document.querySelector("#amount-input");
+const $convertionResultBar = document.querySelector(".convertion-result-bar");
 
 function getApiCurrencies(API_URL) {
   return fetch(API_URL).then((apiResponse) => {
@@ -35,5 +36,63 @@ function getApiCurrencies(API_URL) {
       .catch((error) => console.error(error));
   });
 }
+
+function convertCurrency(baseCurrency, expectedCurrency, amount) {
+  return fetch(API_URL.replace("USD", `${baseCurrency}`)).then(
+    (apiResponse) => {
+      if (!apiResponse.ok) {
+        return "Something went wrong, please try again later";
+      }
+      apiResponse
+        .json()
+        .then((apiResponseJSON) => {
+          let conversionRates = apiResponseJSON.conversion_rates;
+          return calculateConvertion(
+            conversionRates,
+            baseCurrency,
+            expectedCurrency,
+            amount
+          );
+        })
+        .then((convertionResult) => {
+          return updateResultStatus(
+            baseCurrency,
+            expectedCurrency,
+            convertionResult,
+            amount
+          );
+        });
+    }
+  );
+}
+
+function calculateConvertion(
+  conversionRates,
+  baseCurrency,
+  expectedCurrency,
+  amount
+) {
+  let baseCurrencyValue = conversionRates[baseCurrency];
+  let expectedCurrencyValue = conversionRates[expectedCurrency];
+  let result = Number(amount) * baseCurrencyValue * expectedCurrencyValue;
+  return result;
+}
+
+function updateResultStatus(
+  baseCurrency,
+  expectedCurrency,
+  convertionResult,
+  amount
+) {
+  return ($convertionResultBar.textContent = `${amount} ${baseCurrency} is equal to ${convertionResult.toString()} ${expectedCurrency}`);
+}
+
+$convertButton.onclick = () => {
+  let baseCurrency = $baseCurrencySelector.value;
+  let expectedCurrency = $expectedCurrencySelector.value;
+  let amount = $amountInput.value;
+
+  convertCurrency(baseCurrency, expectedCurrency, amount);
+};
 
 getApiCurrencies(API_URL);
