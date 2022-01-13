@@ -1,41 +1,39 @@
 const API_URL =
-  "https://v6.exchangerate-api.com/v6/c6a9657d8a844bf93a1278e3/latest/USD";
+  "https://v6.exchangerate-api.com/v6/cb6cded1588a31eb0fda44c4/latest/USD";
+const SHORT_API_URL =
+  "https://v6.exchangerate-api.com/v6/cb6cded1588a31eb0fda44c4/latest/";
 const $baseCurrencySelector = document.querySelector("#base-currency-selector");
 const $expectedCurrencySelector = document.querySelector(
   "#expected-currency-selector"
 );
-let API_RESPONSE;
+const $convertButton = document.querySelector(".convert-button");
+const $dateInput = document.querySelector("#date-input");
+const $amountInput = document.querySelector("#amount-input");
 
-function getApiData() {
-  return fetch(API_URL)
-    .then((response) => {
-      if (!response.ok) {
-        return "Something went wrong, please try again later.";
-      }
-      return response.json();
-    })
-    .then((response) => {
-      API_RESPONSE = response;
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-}
-
-function addCurrencyValues(response) {
-  let currency = Object.keys(response.conversion_rates);
-  currency.forEach((coin) => {
-    let $option = document.createElement("option");
-    $option.textContent = coin;
-    $option.value = coin;
-    $baseCurrencySelector.appendChild($option);
-  });
-  currency.forEach((coin) => {
-    let $option = document.createElement("option");
-    $option.textContent = coin;
-    $option.value = coin;
-    $expectedCurrencySelector.appendChild($option);
+function getApiCurrencies(API_URL) {
+  return fetch(API_URL).then((apiResponse) => {
+    if (!apiResponse.ok) {
+      return "Something went wrong, please try again later.";
+    }
+    apiResponse
+      .json()
+      .then((apiResponseJSON) => {
+        let currencies = Object.keys(apiResponseJSON.conversion_rates);
+        currencies.forEach((coin) => {
+          let $option = document.createElement("option");
+          $option.textContent = coin;
+          $option.value = coin;
+          $baseCurrencySelector.appendChild($option);
+        });
+        currencies.forEach((coin) => {
+          let $option = document.createElement("option");
+          $option.textContent = coin;
+          $option.value = coin;
+          $expectedCurrencySelector.appendChild($option);
+        });
+      })
+      .catch((error) => console.error(error));
   });
 }
 
-getApiData().then(() => addCurrencyValues(API_RESPONSE));
+getApiCurrencies(API_URL);
