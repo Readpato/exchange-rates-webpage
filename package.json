@@ -4,7 +4,9 @@
   "description": "A website depicting exchange rates",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:run": "cypress run",
+    "cy:open": "cypress open"
   },
   "repository": {
     "type": "git",
@@ -25,6 +27,6 @@
     "bootstrap-icons": "^1.7.2"
   },
   "devDependencies": {
-    "cypress": "^9.2.0"
+    "cypress": "^9.2.1"
   }
 }
