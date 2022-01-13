@@ -16,7 +16,20 @@ main .arrow-right {
   font-size: 2em;
 }
 
-main .convertion-results {
+main .convert-button {
+  background-color: #edb45a;
+  border: none;
+}
+
+main .convert-button:hover {
+  background-color: rgba(237, 180, 90, 0.7);
+}
+
+main .convert-button:focus {
+  background-color: #edb45a;
+}
+
+main .convertion-result-bar {
   background-color: #ed6a5a;
 }
 
