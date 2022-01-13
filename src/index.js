@@ -1,7 +1,5 @@
 const API_URL =
   "https://v6.exchangerate-api.com/v6/cb6cded1588a31eb0fda44c4/latest/USD";
-const SHORT_API_URL =
-  "https://v6.exchangerate-api.com/v6/cb6cded1588a31eb0fda44c4/latest/";
 const $baseCurrencySelector = document.querySelector("#base-currency-selector");
 const $expectedCurrencySelector = document.querySelector(
   "#expected-currency-selector"
