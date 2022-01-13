@@ -12,29 +12,27 @@ const $amountInput = document.querySelector("#amount-input");
 const $convertionResultBar = document.querySelector(".convertion-result-bar");
 
 function getApiCurrencies(API_URL) {
-  return fetch(API_URL).then((apiResponse) => {
-    if (!apiResponse.ok) {
-      return "Something went wrong, please try again later.";
-    }
-    apiResponse
-      .json()
-      .then((apiResponseJSON) => {
-        let currencies = Object.keys(apiResponseJSON.conversion_rates);
-        currencies.forEach((coin) => {
-          let $option = document.createElement("option");
-          $option.textContent = coin;
-          $option.value = coin;
-          $baseCurrencySelector.appendChild($option);
-        });
-        currencies.forEach((coin) => {
-          let $option = document.createElement("option");
-          $option.textContent = coin;
-          $option.value = coin;
-          $expectedCurrencySelector.appendChild($option);
-        });
-      })
-      .catch((error) => console.error(error));
-  });
+  return fetch(API_URL)
+    .then((apiResponse) => {
+      if (!apiResponse.ok) {
+        return "Something went wrong, please try again later.";
+      }
+      return apiResponse.json();
+    })
+    .then((apiResponseJSON) => {
+      let currencies = Object.keys(apiResponseJSON.conversion_rates);
+      return currencies.forEach((coin) => {
+        let $optionBaseCurrency = document.createElement("option");
+        let $optionExpectedCurrency = document.createElement("option");
+        $optionBaseCurrency.textContent = coin;
+        $optionBaseCurrency.value = coin;
+        $optionExpectedCurrency.textContent = coin;
+        $optionExpectedCurrency.value = coin;
+        $baseCurrencySelector.appendChild($optionBaseCurrency);
+        $expectedCurrencySelector.appendChild($optionExpectedCurrency);
+      });
+    })
+    .catch((error) => console.error(error));
 }
 
 function convertCurrency(baseCurrency, expectedCurrency, amount) {
