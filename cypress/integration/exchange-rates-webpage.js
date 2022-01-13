@@ -35,4 +35,17 @@ context("Exchange Rates Webpage", () => {
         .and("contain", "Convertion will appear here");
     });
   });
+  describe("Functionality", () => {
+    it("Type in inputs and display a result", () => {
+      cy.get("#amount-input").type("2").should("have.value", "2");
+      cy.get("#base-currency-selector")
+        .select("USD")
+        .should("have.value", "USD");
+      cy.get("#expected-currency-selector")
+        .select("EUR")
+        .should("have.value", "EUR");
+      cy.get(".convert-button").click();
+      cy.get(".convertion-result-bar").should("be.visible");
+    });
+  });
 });
