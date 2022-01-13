@@ -3,10 +3,6 @@ main {
   width: 100%;
   height: 40vh;
 
-  .info-icon {
-    font-size: 2em;
-  }
-
   .arrow-right {
     font-size: 2em;
   }
@@ -37,10 +33,6 @@ main {
   .arrow-right {
     display: none;
   }
-
-  .info-icon {
-    display: none;
-  }
 }
 
 @media screen and (max-width: 975px) {
@@ -51,10 +43,6 @@ main {
   .arrow-right {
     display: none;
   }
-
-  .info-icon {
-    display: none;
-  }
 }
 
 @media screen and (max-width: 670px) {
@@ -63,10 +51,6 @@ main {
   }
 
   .arrow-right {
-    display: none;
-  }
-
-  .info-icon {
     display: none;
   }
 }
