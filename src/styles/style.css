@@ -8,10 +8,6 @@ main {
   height: 40vh;
 }
 
-main .info-icon {
-  font-size: 2em;
-}
-
 main .arrow-right {
   font-size: 2em;
 }
@@ -40,9 +36,6 @@ main .convertion-result-bar {
   .arrow-right {
     display: none;
   }
-  .info-icon {
-    display: none;
-  }
 }
 
 @media screen and (max-width: 975px) {
@@ -52,9 +45,6 @@ main .convertion-result-bar {
   .arrow-right {
     display: none;
   }
-  .info-icon {
-    display: none;
-  }
 }
 
 @media screen and (max-width: 670px) {
@@ -62,9 +52,6 @@ main .convertion-result-bar {
     height: 60vh;
   }
   .arrow-right {
-    display: none;
-  }
-  .info-icon {
     display: none;
   }
 }
