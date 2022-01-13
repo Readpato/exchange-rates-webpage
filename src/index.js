@@ -36,32 +36,30 @@ function getApiCurrencies(API_URL) {
 }
 
 function convertCurrency(baseCurrency, expectedCurrency, amount) {
-  return fetch(API_URL.replace("USD", `${baseCurrency}`)).then(
-    (apiResponse) => {
+  return fetch(API_URL.replace("USD", `${baseCurrency}`))
+    .then((apiResponse) => {
       if (!apiResponse.ok) {
         return "Something went wrong, please try again later";
       }
-      apiResponse
-        .json()
-        .then((apiResponseJSON) => {
-          let conversionRates = apiResponseJSON.conversion_rates;
-          return calculateConvertion(
-            conversionRates,
-            baseCurrency,
-            expectedCurrency,
-            amount
-          );
-        })
-        .then((convertionResult) => {
-          return updateResultStatus(
-            baseCurrency,
-            expectedCurrency,
-            convertionResult,
-            amount
-          );
-        });
-    }
-  );
+      return apiResponse.json();
+    })
+    .then((apiResponseJSON) => {
+      let conversionRates = apiResponseJSON.conversion_rates;
+      return calculateConvertion(
+        conversionRates,
+        baseCurrency,
+        expectedCurrency,
+        amount
+      );
+    })
+    .then((convertionResult) => {
+      return updateResultStatus(
+        baseCurrency,
+        expectedCurrency,
+        convertionResult,
+        amount
+      );
+    });
 }
 
 function calculateConvertion(
