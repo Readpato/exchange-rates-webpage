@@ -1,7 +1,7 @@
 main {
   background-color: $main-color;
   width: 100%;
-  height: 40vh;
+  height: 50%;
 
   .arrow-right {
     font-size: 2em;
@@ -26,30 +26,18 @@ main {
 }
 
 @media screen and (max-width: 1024px) {
-  main {
-    height: 40vh;
-  }
-
   .arrow-right {
     display: none;
   }
 }
 
 @media screen and (max-width: 975px) {
-  main {
-    height: 60vh;
-  }
-
   .arrow-right {
     display: none;
   }
 }
 
-@media screen and (max-width: 670px) {
-  main {
-    height: 60vh;
-  }
-
+@media screen and (max-width: 660px) {
   .arrow-right {
     display: none;
   }
