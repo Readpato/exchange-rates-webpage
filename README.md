@@ -43,11 +43,11 @@ Then, there are two last elements:
 - A button that will trigger the JavaScript functions needed to create the convertion.
 - A div that will show the results once it's ready.
 
-<img  src="#" align="center">
+<img  src="https://github.com/Readpato/exchange-rates-webpage/blob/main/readme-images/exchange-rates-page-img-1.PNG" align="center">
 
 When all the fields are completed, the user can simply click the "Convert" button and it will display the result.
 
-<img  src="#" align="center">
+<img  src="https://github.com/Readpato/exchange-rates-webpage/blob/main/readme-images/exchange-rates-page-img-2.PNG" align="center">
 
 #
 
