@@ -51,7 +51,7 @@ When all the fields are completed, the user can simply click the "Convert" butto
 
 Should the user insert wrong inputs or even forget to insert any data, the form validators will show some errors in the display to make clear that the user needs to fix them.
 
-<img src="/ align="center">
+<img src="https://github.com/Readpato/exchange-rates-webpage/blob/gh-pages/readme-images/exchange-rates-page-img-3.PNG" align="center">
 
 #
 
