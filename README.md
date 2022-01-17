@@ -49,6 +49,10 @@ When all the fields are completed, the user can simply click the "Convert" butto
 
 <img  src="https://github.com/Readpato/exchange-rates-webpage/blob/main/readme-images/exchange-rates-page-img-2.PNG" align="center">
 
+Should the user insert wrong inputs or even forget to insert any data, the form validators will show some errors in the display to make clear that the user needs to fix them.
+
+<img src="/ align="center">
+
 #
 
 ## Challenges Faced
