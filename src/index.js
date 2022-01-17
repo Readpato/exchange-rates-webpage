@@ -4,9 +4,6 @@ const $baseCurrencySelector = document.querySelector("#base-currency-selector");
 const $expectedCurrencySelector = document.querySelector(
   "#expected-currency-selector"
 );
-const $convertButton = document.querySelector(".convert-button");
-const $dateInput = document.querySelector("#date-input");
-const $amountInput = document.querySelector("#amount-input");
 const $convertionResultBar = document.querySelector(".convertion-result-bar");
 const $form = document.form;
 
@@ -154,7 +151,7 @@ function updateResultStatus(
   convertionResult,
   amount
 ) {
-  return ($convertionResultBar.textContent = `${amount} ${baseCurrency} is equal to ${convertionResult.toString()} ${expectedCurrency}`);
+  return ($convertionResultBar.textContent = `${amount} ${baseCurrency} is/are equal to ${convertionResult.toString()} ${expectedCurrency}`);
 }
 
 getApiCurrencies(API_URL);
