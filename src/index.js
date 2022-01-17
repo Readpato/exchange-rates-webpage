@@ -89,6 +89,24 @@ function updateResultStatus(
   return ($convertionResultBar.textContent = `${amount} ${baseCurrency} is equal to ${convertionResult.toString()} ${expectedCurrency}`);
 }
 
+function validateForm(event) {
+  event.preventDefault();
+  const $form = document.form;
+  const amountValue = $form["amount-input-value"].value;
+  const baseCurrencyvalue = $form["base-currency-value"].value;
+  const expectedCurrencyValue = $form["expected-currency-value"].value;
+
+  const errors = {
+    "amount-value": validateAmount(amountValue),
+    "base-currency-value": validateBaseCurrency(baseCurrencyvalue),
+    "expected-Currency-Value": validateExpectedCurrency(expectedCurrencyValue),
+  };
+
+  const success = handleErrors(errors) === 0;
+
+  if (success) return convertCurrency(/*  Insert values here */);
+}
+
 function validateAmount(amountValue) {
   const regEx = /^[0-9]+$/;
 
@@ -100,11 +118,14 @@ function validateAmount(amountValue) {
 
 function validateBaseCurrency(baseCurrencyValue) {
   if (baseCurrencyValue === "") return "Please, insert a base currency.";
+  return true;
 }
 
 function validateExpectedCurrency(expectedCurrencyValue) {
   if (expectedCurrencyValue === "")
     return "Please, insert an expected currency.";
+
+  return true;
 }
 
 getApiCurrencies(API_URL);
