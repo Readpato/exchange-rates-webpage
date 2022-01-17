@@ -132,7 +132,8 @@ function convertCurrency(baseCurrency, expectedCurrency, amount) {
         convertionResult,
         amount
       );
-    });
+    })
+    .catch((error) => console.error(error));
 }
 
 function calculateConvertion(
