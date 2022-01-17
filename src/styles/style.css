@@ -35,6 +35,8 @@ main .error {
 
 main .existing-error {
   color: red;
+  list-style-position: inside;
+  font-weight: 600;
 }
 
 @media screen and (max-width: 1024px) {
