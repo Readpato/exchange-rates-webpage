@@ -8,6 +8,7 @@ const $convertButton = document.querySelector(".convert-button");
 const $dateInput = document.querySelector("#date-input");
 const $amountInput = document.querySelector("#amount-input");
 const $convertionResultBar = document.querySelector(".convertion-result-bar");
+const $form = document.form;
 
 function getApiCurrencies(API_URL) {
   return fetch(API_URL)
@@ -31,6 +32,80 @@ function getApiCurrencies(API_URL) {
       });
     })
     .catch((error) => console.error(error));
+}
+
+$form.onsubmit = validateForm;
+
+function validateForm(event) {
+  event.preventDefault();
+  const amountValue = $form["amount-input-value"].value;
+  const baseCurrencyvalue = $form["base-currency-value"].value;
+  const expectedCurrencyValue = $form["expected-currency-value"].value;
+
+  const errors = {
+    "amount-input-value": validateAmount(amountValue),
+    "base-currency-value": validateBaseCurrency(baseCurrencyvalue),
+    "expected-currency-value": validateExpectedCurrency(expectedCurrencyValue),
+  };
+
+  deleteOldErrors();
+
+  const success = handleErrors(errors) === 0;
+
+  if (success) {
+    convertCurrency(baseCurrencyvalue, expectedCurrencyValue, amountValue);
+  }
+}
+
+function handleErrors(errors) {
+  const error = errors;
+  const keys = Object.keys(errors);
+  let errorQuantity = 0;
+
+  keys.forEach(function (key) {
+    if (error[key]) {
+      $form[key].classList.add("error");
+      $form[key].value = "";
+
+      const $errorList = document.querySelector(".existing-errors");
+      const $error = document.createElement("li");
+      $error.textContent = error[key];
+      $error.classList.add("existing-error");
+      $errorList.appendChild($error);
+      errorQuantity++;
+    } else {
+      $form[key].classList.remove("error");
+    }
+  });
+  return errorQuantity;
+}
+
+function deleteOldErrors() {
+  const $existingErrors = document.querySelectorAll(".existing-error");
+  $existingErrors.forEach((error) => {
+    error.remove();
+  });
+}
+
+function validateAmount(amountValue) {
+  const regEx = /^[0-9]+$/;
+
+  if (amountValue === "") return "Please, insert an amount.";
+  if (!regEx.test(amountValue)) return "The amount field only accepts numbers";
+
+  return "";
+}
+
+function validateBaseCurrency(baseCurrencyValue) {
+  if (baseCurrencyValue === "") return "Please, insert a base currency.";
+  return "";
+}
+
+function validateExpectedCurrency(expectedCurrencyValue) {
+  if (expectedCurrencyValue === "")
+    return "Please, insert an expected currency.";
+
+  return "";
 }
 
 function convertCurrency(baseCurrency, expectedCurrency, amount) {
@@ -80,13 +155,5 @@ function updateResultStatus(
 ) {
   return ($convertionResultBar.textContent = `${amount} ${baseCurrency} is equal to ${convertionResult.toString()} ${expectedCurrency}`);
 }
-
-$convertButton.onclick = () => {
-  let baseCurrency = $baseCurrencySelector.value;
-  let expectedCurrency = $expectedCurrencySelector.value;
-  let amount = $amountInput.value;
-
-  convertCurrency(baseCurrency, expectedCurrency, amount);
-};
 
 getApiCurrencies(API_URL);

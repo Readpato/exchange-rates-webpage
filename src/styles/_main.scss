@@ -23,6 +23,16 @@ main {
   .convertion-result-bar {
     background-color: $result-color;
   }
+
+  .error {
+    border: 2px red solid;
+  }
+
+  .existing-error {
+    color: red;
+    list-style-position: inside;
+    font-weight: 600;
+  }
 }
 
 @media screen and (max-width: 1024px) {

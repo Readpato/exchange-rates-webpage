@@ -36,13 +36,14 @@
 
     <main class="d-flex align-items-center">
       <div class="container">
-        <form>
+        <form name="form">
           <div class="row justify-content-center">
             <div class="amount-wrapper col-lg-4 col-sm-12">
               <label for="amount-input" class="form-label amount-label"
                 >Amount</label
               >
               <input
+                name="amount-input-value"
                 type="number"
                 class="form-control"
                 id="amount-input"
@@ -58,11 +59,12 @@
                 >From</label
               >
               <select
+                name="base-currency-value"
                 id="base-currency-selector"
                 class="form-select"
                 aria-label="Default select example"
               >
-                <option selected>Select base currency</option>
+                <option selected value="">Select base currency</option>
               </select>
             </div>
             <div class="col-md-auto d-flex">
@@ -77,23 +79,29 @@
                 >To</label
               >
               <select
+                name="expected-currency-value"
                 id="expected-currency-selector"
                 class="form-select"
                 aria-label="Default select example"
               >
-                <option selected>Select expected currency</option>
+                <option selected value="">Select expected currency</option>
               </select>
             </div>
           </div>
           <div class="row text-center">
             <div class="col col-lg-12 col-sm-12">
               <button
-                type="button"
+                type="submit"
                 class="btn btn-primary mt-3 convert-button"
                 aria-pressed="false"
               >
                 Convert
               </button>
+            </div>
+          </div>
+          <div class="row text-center pt-2">
+            <div class="col-lg-12 col-sm-12">
+              <ul class="existing-errors"></ul>
             </div>
           </div>
         </form>
@@ -115,7 +123,9 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="src/index.js"></script>
+    <script src="src/unit-tests.js"></script>
   </body>
 </html>
