@@ -33,6 +33,14 @@ function getApiCurrencies(API_URL) {
     .catch((error) => console.error(error));
 }
 
+$convertButton.onclick = () => {
+  let baseCurrency = $baseCurrencySelector.value;
+  let expectedCurrency = $expectedCurrencySelector.value;
+  let amount = $amountInput.value;
+
+  convertCurrency(baseCurrency, expectedCurrency, amount);
+};
+
 function convertCurrency(baseCurrency, expectedCurrency, amount) {
   return fetch(API_URL.replace("USD", `${baseCurrency}`))
     .then((apiResponse) => {
@@ -81,12 +89,21 @@ function updateResultStatus(
   return ($convertionResultBar.textContent = `${amount} ${baseCurrency} is equal to ${convertionResult.toString()} ${expectedCurrency}`);
 }
 
-$convertButton.onclick = () => {
-  let baseCurrency = $baseCurrencySelector.value;
-  let expectedCurrency = $expectedCurrencySelector.value;
-  let amount = $amountInput.value;
+function validateAmount(amountValue) {
+  const regEx = /^[0-9]+$/;
 
-  convertCurrency(baseCurrency, expectedCurrency, amount);
-};
+  if (amountValue === "") return "Please, insert an amount.";
+  if (!regEx.test(amountValue)) return "The amount field only accepts numbers";
+
+  return true;
+}
+
+function validateBaseCurrency(baseCurrencyValue) {
+  if (baseCurrencyValue === "") return "Please, insert a base currency.";
+}
+
+function validateExpectedCurrency(expectedCurrencyValue) {
+  if (expectedCurrencyValue === "") return "Please, insert a base currency.";
+}
 
 getApiCurrencies(API_URL);
