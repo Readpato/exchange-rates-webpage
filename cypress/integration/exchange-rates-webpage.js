@@ -38,6 +38,19 @@ context("Exchange Rates Webpage", () => {
     });
   });
   describe("Functionality", () => {
+    it("Test if the form validators work correctly", () => {
+      cy.get(".convert-button").click();
+      cy.get(".existing-error").should("have.length", "3");
+      cy.get(".existing-error")
+        .eq(0)
+        .should("contain", "Please, insert an amount.");
+      cy.get(".existing-error")
+        .eq(1)
+        .should("contain", "Please, insert a base currency.");
+      cy.get(".existing-error")
+        .eq(2)
+        .should("contain", "Please, insert an expected currency.");
+    });
     it("Type in inputs and display a result", () => {
       cy.get("#amount-input").type("2").should("have.value", "2");
       cy.get("#base-currency-selector")
