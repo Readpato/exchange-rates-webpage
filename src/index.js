@@ -103,7 +103,8 @@ function validateBaseCurrency(baseCurrencyValue) {
 }
 
 function validateExpectedCurrency(expectedCurrencyValue) {
-  if (expectedCurrencyValue === "") return "Please, insert a base currency.";
+  if (expectedCurrencyValue === "")
+    return "Please, insert an expected currency.";
 }
 
 getApiCurrencies(API_URL);
