@@ -23,10 +23,12 @@ context("Exchange Rates Webpage", () => {
       cy.get(".base-currency-label").should("have.text", "From");
       cy.get("#base-currency-selector")
         .first("option")
-        .should("have.value", "Select base currency");
+        .should("have.value", "")
+        .and("contain", "Select base currency");
       cy.get("#expected-currency-selector")
         .first("option")
-        .should("have.value", "Select expected currency");
+        .should("have.value", "")
+        .and("contain", "Select expected currency");
       cy.get(".convert-button")
         .should("have.css", "background-color", "rgb(237, 180, 90)")
         .and("contain", "Convert");
