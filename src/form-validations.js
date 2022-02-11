@@ -1,5 +1,5 @@
 import { deleteOldErrors } from "./ui.js";
-import { convertCurrency } from "./logic.js";
+import { convertCurrency } from "./service.js";
 
 const $form = document.form;
 
