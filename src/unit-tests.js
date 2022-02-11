@@ -1,3 +1,9 @@
+import {
+  validateAmount,
+  validateBaseCurrency,
+  validateExpectedCurrency,
+} from "./form-validations.js";
+
 function testValidateAmount() {
   console.assert(
     validateAmount("") === "Please, insert an amount.",
