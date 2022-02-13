@@ -1,7 +1,8 @@
 main {
   background-color: $main-color;
   width: 100%;
-  height: 60%;
+  height: auto;
+  padding: 15px;
 
   .arrow-right {
     font-size: 2em;

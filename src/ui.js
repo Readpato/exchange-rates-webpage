@@ -18,9 +18,9 @@ export function addCurrencyLists(json) {
   });
 }
 
-export function deleteOldErrors() {
+export function deletePreviousErrors() {
   const $existingErrors = document.querySelectorAll(".existing-error");
-  $existingErrors.forEach((error) => {
+  return $existingErrors.forEach((error) => {
     error.remove();
   });
 }

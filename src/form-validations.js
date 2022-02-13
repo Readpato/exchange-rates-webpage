@@ -1,10 +1,9 @@
-import { deleteOldErrors } from "./ui.js";
+import { deletePreviousErrors } from "./ui.js";
 import { convertCurrency } from "./service.js";
-
-const $form = document.form;
 
 export function validateForm(event) {
   event.preventDefault();
+  const $form = document.form;
   const amountValue = $form["amount-input-value"].value;
   const baseCurrencyvalue = $form["base-currency-value"].value;
   const expectedCurrencyValue = $form["expected-currency-value"].value;
@@ -15,7 +14,7 @@ export function validateForm(event) {
     "expected-currency-value": validateExpectedCurrency(expectedCurrencyValue),
   };
 
-  deleteOldErrors();
+  deletePreviousErrors();
 
   const success = handleErrors(errors) === 0;
 
@@ -24,7 +23,8 @@ export function validateForm(event) {
   }
 }
 
-export function handleErrors(errors) {
+function handleErrors(errors) {
+  const $form = document.form;
   const error = errors;
   const keys = Object.keys(errors);
   let errorQuantity = 0;
@@ -47,7 +47,7 @@ export function handleErrors(errors) {
   return errorQuantity;
 }
 
-export function validateAmount(amountValue) {
+function validateAmount(amountValue) {
   const regEx = /^[0-9]+$/;
 
   if (amountValue === "") return "Please, insert an amount.";
