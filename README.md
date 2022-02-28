@@ -4,6 +4,8 @@
 
 A simple website that allows the user to see the exchange rates from the day for a selected amount of money.
 
+Try it here: <a href="https://readpato.github.io/exchange-rates-webpage/">Demo</a>
+
 ### Technologies Used
 
 For this project the technologies and tools used were:
@@ -15,6 +17,7 @@ For this project the technologies and tools used were:
 - HTML
 - NPM
 - Cypress
+- API: <a href="https://www.exchangerate-api.com/">Demo</a>
 
 #
 
